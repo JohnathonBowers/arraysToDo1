@@ -80,3 +80,28 @@ function removeAt(arr, idx) {
     console.log(arr);
     return indexVal;
 }
+
+
+/*
+BONUS: Swap Pairs
+
+Swap positions of successive pairs of values of given array. If length is odd, do not change the final element.
+
+Examples:
+
+insertAt([1,2,3,4]) => [2,1,4,3]
+insertAt(["Brendan",true,42]) => [true,"Brendan",42]
+*/
+
+function swapPairs(arr) {
+    for (let i = 0; i < arr.length; i += 2) {
+        if (arr[i + 1] === undefined) {
+            return arr;
+        } else {
+            const temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+        }
+    }
+    return arr;
+}
