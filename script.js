@@ -9,13 +9,13 @@ pushFront([5,7,2,3], 8) => [8,5,7,2,3]
 pushFront([99], 7) => [7,99] 
 */
 
-function pushFront(array, value) {
-    for (let i = array.length; i > 0; i--) {
-        array[i] = array[i - 1];
+function pushFront(arr, val) {
+    for (let i = arr.length; i > 0; i--) {
+      arr[i] = arr[i - 1];
     }
-    array[0] = value;
-    return array;
-}
+    arr[0] = val;
+    return arr;
+  }
 
 
 /*
@@ -29,12 +29,32 @@ popFront([0,5,10,15]) => 0 returned, with [5,10,15] printed in the function
 popFront([4,5,7,9]) => 4 returned, with [5,7,9] printed in the function 
 */
 
-function popFront(array) {
-    const initialValue = array[0];
-    for(let i = 0; i < array.length - 1; i++) {
-        array[i] = array[i + 1];
+function popFront(arr) {
+    const initialVal = arr[0];
+    for(let i = 0; i < arr.length - 1; i++) {
+        arr[i] = arr[i + 1];
     }
-    array.length = array.length - 1;
-    console.log(array);
-    return initialValue;
+    arr.length = arr.length - 1;
+    console.log(arr);
+    return initialVal;
+}
+
+
+/*
+Insert At
+
+Given an array, index, and additional value, insert the value into array at given index. You can think of pushFront(arr,val) as equivalent to insertAt(arr,0,val). You may use .push(), you are able do this without it though!
+
+Examples:
+
+insertAt([100,200,5], 2, 311) => [100,200,311,5]
+insertAt([9,33,7], 1, 42) => [9,42,33,7]
+*/
+
+function insertAt(arr, idx, val) {
+    for(let i = arr.length - 1; i >= idx; i--){
+        arr[i + 1] = arr[i];
+    }
+    arr[idx] = val;
+    return arr;
 }
