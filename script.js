@@ -105,3 +105,32 @@ function swapPairs(arr) {
     }
     return arr;
 }
+
+/*
+BONUS: Remove Duplicates
+
+Given a sorted array, remove duplicate values. Because array elements are already in order, all duplicate values will be grouped together. If you already made the Remove At function, you are welcome to use that! If you solved this using nested loops, for an extra challenge, try to do it without any nested loops!
+
+Examples:
+
+removeDupes([-2,-2,3.14,5,5,10]) => [-2,3.14,5,10]
+removeDupes([9,19,19,19,19,19,29]) => [9,19,29]
+*/
+
+function removeAt(arr, idx) {
+    for(let i = idx; i < arr.length - 1; i++){
+        arr[i] = arr[i + 1];
+    }
+    arr.length = arr.length - 1;
+    return arr;
+}
+
+function removeDupes(arr1) {
+    for(let i = 1; i < arr1.length - 1; i++) {
+        if (arr1[i] === arr1[i - 1]) {
+            removeAt(arr1, i);
+            i -= 1;
+        }
+    }
+    return arr1;
+}
